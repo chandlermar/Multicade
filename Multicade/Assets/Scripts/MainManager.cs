@@ -27,5 +27,16 @@ public class MainManager : MonoBehaviour
 
 
     public int credits;
+
+    public void handleQuit()
+    {
+        Application.Quit();
+    }
+
+    public void handleAddCreds()
+    {
+        credits += 5;
+        AudioMgr.inst.playSelectSound();
+    }
     
 }

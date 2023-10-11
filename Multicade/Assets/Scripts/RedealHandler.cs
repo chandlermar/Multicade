@@ -42,13 +42,26 @@ public class RedealHandler : MonoBehaviour
     {
         if (!GameMgr.inst.isPressStart)
         {
-            AudioMgr.inst.playSelectSound();
-            GameMgr.inst.isPressStart = true;
+            if ((MainManager.inst.credits - GameMgr.inst.betAmt) >= 0)
+            {
+                AudioMgr.inst.playSelectSound();
+                GameMgr.inst.isPressStart = true;
+            }
+            else
+                AudioMgr.inst.playNullSound();
+       
         }
         if (!GameMgr.inst.isPressStartBJ)
         {
-            AudioMgr.inst.playSelectSound();
-            GameMgr.inst.isPressStartBJ = true;
+            if ((MainManager.inst.credits - GameMgr.inst.betAmt) >= 0)
+            {
+                AudioMgr.inst.playSelectSound();
+                GameMgr.inst.isPressStartBJ = true;
+            }
+            else
+                AudioMgr.inst.playNullSound();
+            
+            
         }
 
         if (GameMgr.inst.isPoker)
@@ -144,6 +157,10 @@ public class RedealHandler : MonoBehaviour
             {
                 AudioMgr.inst.playNullSound();
             }
+            else if (GameMgr.inst.currentStateBJ == GameMgr.GameStateBJ.PreDeal)
+            {
+                AudioMgr.inst.playNullSound();
+            }
 
         }
         
@@ -217,6 +234,10 @@ public class RedealHandler : MonoBehaviour
         {
             AudioMgr.inst.playNullSound();
         }
-        
+        else if (GameMgr.inst.currentStateBJ == GameMgr.GameStateBJ.PreDeal)
+        {
+            AudioMgr.inst.playNullSound();
+        }
+
     }
 }

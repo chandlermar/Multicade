@@ -7,7 +7,7 @@ public class CardClickHandler : MonoBehaviour
 
     public void heldHandler()
     {
-        if (GameMgr.inst.currentState != GameMgr.GameState.PostDeal)
+        if (GameMgr.inst.currentState != GameMgr.GameState.PostDeal && GameMgr.inst.currentState != GameMgr.GameState.PreDeal)
         {
             foreach (Transform child in this.transform)
             {
