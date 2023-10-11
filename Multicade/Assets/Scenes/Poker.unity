@@ -2812,7 +2812,6 @@ MonoBehaviour:
   nullSound: {fileID: 8300000, guid: 13df841277f865d47b4e0699e4221876, type: 3}
   winSound: {fileID: 8300000, guid: e86156d83b8a94540b711e3c36e978ea, type: 3}
   heldSound: {fileID: 8300000, guid: eb103d21966ea1d42b53b32f4e531b12, type: 3}
-  dealCardSound: {fileID: 8300000, guid: 6ba75a6c8755e2146a15401f74a50e60, type: 3}
   selectSound: {fileID: 8300000, guid: 6ba75a6c8755e2146a15401f74a50e60, type: 3}
   speakerSource: {fileID: 1103973802}
 --- !u!82 &1103973802
@@ -5587,82 +5586,6 @@ RectTransform:
   m_AnchoredPosition: {x: 55, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1982034356
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1982034357}
-  - component: {fileID: 1982034359}
-  - component: {fileID: 1982034358}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1982034357
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982034356}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2018855064}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 226, y: 50}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1982034358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982034356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a2237ab25a2c404c8447ce901063ca6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1982034359
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982034356}
-  m_CullTransparentMesh: 1
 --- !u!1 &2017495754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5809,7 +5732,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1415251323}
-  - {fileID: 1982034357}
   m_Father: {fileID: 313955208}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6108,13 +6030,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoker: 1
   isBlackjack: 0
+  scoringDone: 0
+  preDealDone: 0
   betAmt: 1
   currentState: 0
   currentStateBJ: 0
   Slots: {fileID: 376421835}
   SlotsBJ: {fileID: 0}
-  scoringDone: 0
-  preDealDone: 0
   scoringDoneBJ: 0
   playerBust: 0
   dealerBust: 0

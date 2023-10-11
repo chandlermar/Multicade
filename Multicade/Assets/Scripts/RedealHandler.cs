@@ -240,4 +240,15 @@ public class RedealHandler : MonoBehaviour
         }
 
     }
+
+    public void handleQuit()
+    {
+        Application.Quit();
+    }
+
+    public void handleAddCreds()
+    {
+        MainManager.inst.credits += 5;
+        AudioMgr.inst.playSelectSound();
+    }
 }

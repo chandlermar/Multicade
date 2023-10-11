@@ -6,6 +6,7 @@ Video Poker and Blackjack
 Unity Project version: 2021.3.17f1
 Run Instructions: When running within Unity, please use FULL HD (1920x1080).
     Game Window-> Free Aspect -> FULL HD (1920x1080)
+    Launch MainMenu Scene to start (if not set as default)
 
 Poker: Modeled after IGT's GameKing video poker. Pay tables displayed on top of the screen.
 Blackjack: Modeled after standard video blackjack. This version does not include Insurance for dealer blackjack or splits.
@@ -17,3 +18,5 @@ Feel free to email me with any questions or concerns!
 Github: https://github.com/chandlermar/Multicade
 
 LinkedIn: https://www.linkedin.com/in/chandlerwheatmartin/
+
+Youtube: https://www.youtube.com/watch?v=NwPPsFUcgYY&t=196s
