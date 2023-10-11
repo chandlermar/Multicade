@@ -96,26 +96,7 @@ public class RedealHandler : MonoBehaviour
                         }
                     }
                 }
-                /*
-                Debug.Log("Hand numbers-suit 1: " + CardMgr.inst.hand[0].number + " - " + CardMgr.inst.hand[0].suit);
-                Debug.Log("Hand numbers-suit 2: " + CardMgr.inst.hand[1].number + " - " + CardMgr.inst.hand[1].suit);
-                Debug.Log("Hand numbers-suit 3: " + CardMgr.inst.hand[2].number + " - " + CardMgr.inst.hand[2].suit);
-                Debug.Log("Hand numbers-suit 4: " + CardMgr.inst.hand[3].number + " - " + CardMgr.inst.hand[3].suit);
-                Debug.Log("Hand numbers-suit 5: " + CardMgr.inst.hand[4].number + " - " + CardMgr.inst.hand[4].suit);
-
-
-                Debug.Log("=-=-=-=-=");
-                Debug.Log("PREFABS");
-
-                //unsorted prefabs debugging
-                Debug.Log("Hand prefab 1: " + CardMgr.inst.cardsInHandPrefabs[0]);
-                Debug.Log("Hand prefab 2: " + CardMgr.inst.cardsInHandPrefabs[1]);
-                Debug.Log("Hand prefab 3: " + CardMgr.inst.cardsInHandPrefabs[2]);
-                Debug.Log("Hand prefab 4: " + CardMgr.inst.cardsInHandPrefabs[3]);
-                Debug.Log("Hand prefab 5: " + CardMgr.inst.cardsInHandPrefabs[4]);
-                */
                 GameMgr.inst.currentState = GameMgr.GameState.PostDeal;
-
             }
         }
         else if (GameMgr.inst.isBlackjack)
@@ -135,25 +116,6 @@ public class RedealHandler : MonoBehaviour
             {
                 AudioMgr.inst.playNullSound();
             }
-        }
-    }
-
-    public void handleSplit()
-    {
-        if (GameMgr.inst.currentStateBJ == GameMgr.GameStateBJ.HitPhase)
-        {
-            if (GameMgr.inst.canSplit)
-            {
-                AudioMgr.inst.playSelectSound();
-            }
-            else
-            {
-                AudioMgr.inst.playNullSound();
-            }
-        }
-        else
-        {
-            AudioMgr.inst.playNullSound();
         }
     }
 
@@ -193,8 +155,6 @@ public class RedealHandler : MonoBehaviour
         {
             if (GameMgr.inst.currentStateBJ == GameMgr.GameStateBJ.HitPhase)
             {
-                //IF statement goes here seeing if they can hit, or if theyve bust
-                //indent and throw everything underneath inside (TO BE ADDED)
                 AudioMgr.inst.playSelectSound();
 
                 GameMgr.inst.canDouble = false;
@@ -250,7 +210,6 @@ public class RedealHandler : MonoBehaviour
         if (GameMgr.inst.currentStateBJ == GameMgr.GameStateBJ.HitPhase)
         {
             AudioMgr.inst.playSelectSound();
-            //Reveal dealer's card until stop by logic (TO BE ADDED)
 
             GameMgr.inst.currentStateBJ = GameMgr.GameStateBJ.PostGame;
         }

@@ -31,14 +31,6 @@ public class UIMgr : MonoBehaviour
     public GameObject Slot14;
     public GameObject Slot15;
     public GameObject Slot16;
-    public GameObject SlotForSplit1;
-    public GameObject SlotForSplit2;
-    public GameObject SlotForSplit3;
-    public GameObject SlotForSplit4;
-    public GameObject SlotforSplit5;
-    public GameObject SlotForSplit6;
-    public GameObject SlotForSplit7;
-    public GameObject SlotForSplit8;
 
     public TMP_Text winningText; //Poker
     public TMP_Text dealerScore; //BJ
@@ -53,14 +45,10 @@ public class UIMgr : MonoBehaviour
         int suitIndex = (int)card.suit;
         int number = card.number;
 
-        //Debug.Log("Suit Index: " + suitIndex);
-        //Debug.Log("Number: " + number);
-
         if (suitIndex >=0 && suitIndex < 4 && number >=2 && number <= 14)
         {
             int cardIndex = suitIndex * 13 + (number - 2);
 
-            //Debug.Log("Card Index: " + cardIndex);
             if (cardIndex >= 0 && cardIndex < CardMgr.inst.cardPrefabs.Length)
             {
                 return CardMgr.inst.cardPrefabs[cardIndex]; 
@@ -88,20 +76,11 @@ public class UIMgr : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //MainManager.inst.creditsText.text = MainManager.inst.credits.ToString();
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         creditsText.text = MainManager.inst.credits.ToString();
         betAmtText.text = GameMgr.inst.betAmt.ToString();
-
-        //GameMgr.inst.checkPlayerHandValue();
-        //GameMgr.inst.checkDealerHandValue();
     }
 
     public void displayWinningText(string input)

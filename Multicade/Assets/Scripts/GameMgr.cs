@@ -32,6 +32,9 @@
         public bool isPoker = false;
         public bool isBlackjack = true;
 
+        public bool scoringDone = false; //Poker
+        public bool preDealDone = false; //Poker
+
         public int betAmt = 1;
 
         public GameState currentState = GameState.PreDeal; //Poker
@@ -39,13 +42,10 @@
 
         public GameObject Slots; //Poker
         public GameObject SlotsBJ; //Blackjack
-        public GameObject SlotsForSplitBJ;
 
-        public bool scoringDone = false; //Poker
-        public bool preDealDone = false; //Poker
-
-        public bool scoringDoneBJ = false; //Blackjack
-        public bool playerBust = false; //Blackjack
+        //Blackjack bool flags
+        public bool scoringDoneBJ = false; 
+        public bool playerBust = false; 
         public bool dealerBust = false; 
         public bool isDoubleDown = false;
         public bool isDealerDone = false;
@@ -55,8 +55,7 @@
         public bool canDouble = true;
         public bool isPressStart;
         public bool isPressStartBJ;
-        public bool canSplit = false;
-        public bool isSplit = false;
+        public bool dealerInstaBJ = false;
 
 
         // Start is called before the first frame update
@@ -74,8 +73,6 @@
             {
                 if (isPoker)
                 {
-                    //Debug.Log("Current State: " + currentState);
-
                     if (currentState == GameState.PreDeal)
                     {
                         CardMgr.inst.handlePredeal();
@@ -97,32 +94,21 @@
                 }
                 else if (currentStateBJ == GameStateBJ.HitPhase)
                 {
-                    if (!isSplit)
+                    checkPlayerBust();
+                    checkDealerHandValue();
+                    if (playerBust)
                     {
-                        checkPlayerBust();
-                        checkDealerHandValue();
-                        if (playerBust)
-                        {
-                            currentStateBJ = GameStateBJ.PostGame;
-                        }
+                        currentStateBJ = GameStateBJ.PostGame;
                     }
-                    else if (isSplit)
-                    {
-
-                    }
-
                 }
                 else if (currentStateBJ == GameStateBJ.PostGame)
                 {
-                    //checkDealerHandValue();
-
-
                     if (playerBust) //When player hits deal, redealHandler handles cleanup and launching into predeal phase
                     {
                         UIMgr.inst.resultsText.text = "You Bust".ToString();
                         CardMgr.inst.revealDealerDownCard();
                     }
-                    else if (!isDealerDone) //player stands, dealer gets delt until bust/stand
+                    else if (!isDealerDone || dealerInstaBJ) //player stands, dealer gets delt until bust/stand
                     {
                         CardMgr.inst.revealDealerDownCard();
                         CardMgr.inst.handleDealerPostGame();
@@ -169,9 +155,7 @@
                                     MainManager.inst.credits += betAmt;
                             }
                         }
-                        //display win/loss and add credits
                     }
-                    //CardMgr.inst.handleScoringBJ();
                 }
             }
         }
@@ -208,14 +192,12 @@
                 {
                     card.rank = card.number;
                 }
-                    
 
                 handValue += card.rank;
             }
 
             while (playerAcesCount > 0 && handValue > 21)
             {
-                // Adjust the value of one Ace from 11 to 1
                 handValue -= 10;
                 playerAcesCount--;
             }
@@ -256,7 +238,6 @@
 
             while (dealerAcesCount > 0 && handValue > 21)
             {
-                // Adjust the value of one Ace from 11 to 1
                 handValue -= 10;
                 dealerAcesCount--;
             }
